@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board & Drinking</title>
+    <!-- CSS styling links-->
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+
+    <!-- Needs to call JS at the top not bottom for Foundation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/js/foundation.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <!--Page title and Description-->
+      <h1>Board & Drinking</h1>
+      <p>
+        You and your friends ever have difficulty making a decision about what
+        game to play or what to drink? Here is a random suggestion generator
+        just for you!
+      </p>
+    </header>
+    <!--main page content-->
+    <main>
+      <!--suggestion generator boxes-->
+      <div id="maincontent">
+        <!--board game section-->
+        <div id="boardgame" class="suggestions">
+          <h2 id="board-game-title">Board Game</h2>
+          <button class="hollow button" href="#" id="randomGame">
+            Randomize
+          </button>
+          <!--slider for number of players select-->
+          <div class="grid-x grid-margin-x">
+            <div class="cell small-10">
+              <div
+                id="numberPlayer"
+                class="slider"
+                data-slider
+                data-initial-start="1"
+                data-end="16"
+                data-step="1"
+              >
+                <span
+                  class="slider-handle"
+                  data-slider-handle
+                  role="slider"
+                  tabindex="1"
+                  aria-controls="sliderOutput2"
+                ></span>
+                <span class="slider-fill" data-slider-fill="#000"></span>
+              </div>
+            </div>
+            <div class="cell small-2">
+              <input type="number" id="sliderOutput2" />
+            </div>
+          </div>
+          <img src="#" id="gamepic" class="suggestPic" />
+          <br>
+          <!--modal-->
+          <button
+            id="gameBtnD"
+            class="button onGenerate"
+            data-open="exampleModal1"
+          >
+            Game Description
+          </button>
+          <br />
+          <div class="reveal" id="exampleModal1" data-reveal>
+            <h3>Description:</h3>
+            <span id="gamedscrpt"></span>
+            <button
+              class="close-button"
+              data-close
+              aria-label="Close reveal"
+              type="button"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--save to favorites btn-->
+          <button id="saveGame" class="submit success button onGenerate">
+            Save
+          </button>
+        </div>
+
+        <!--Drink section-->
+        <div id="drink" class="suggestions">
+          <h2 id="drink-title">Drink</h2>
+          <button class="hollow button" href="#" id="randomDrink">
+            Randomize
+          </button>
+          <img src="#" id="drinkpic" class="suggestPic" />
+          <!--modal-->
+          <button
+            id="drinkBtnD"
+            class="button onGenerate"
+            data-open="exampleModal2"
+          >
+            Make this Drink!
+          </button>
+          <br />
+          <div class="reveal" id="exampleModal2" data-reveal>
+            <h1>Ingredients:</h1>
+            <p id="ingredList">List ingredients here:</p>
+            <h3>Instructions:</h3>
+            <span id="drinkdscrpt"></span>
+            <button
+              class="close-button"
+              data-close
+              aria-label="Close reveal"
+              type="button"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--save to favorites btn-->
+          <button id="saveDrink" class="submit success button onGenerate">
+            Save
+          </button>
+        </div>
+      </div>
+      <!--Saved Favorites section-->
+      <div id="asidecontent">
+        <!--favorite games-->
+        <div id="boardgameFav" class="favStyle">
+          <p class="favHeader" id="gameFavHead">Favorite Board Games</p>
+          <ul id="savedGames" class="vertical menu"></ul>
+        </div>
+        <!--favorite drinks-->
+        <div id="drinkFav" class="favStyle">
+          <p class="favHeader" id="drinkFavHead">Favorite Drinks</p>
+          <ul id="savedDrinks" class="vertical menu"></ul>
+        </div>
+      </div>
+    </main>
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="./assets/script.js"></script>
+    <script src="./assets/eventlistener.js"></script>
+  </body>
+  <div class="bottomGlow"></div>
+</html>
